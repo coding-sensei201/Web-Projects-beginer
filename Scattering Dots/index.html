@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>moving dots</title>
+</head>
+
+<body>
+    <script>
+// Function to generate random numbers between min and max 
+
+        function getRandomInt(min,max){
+            return Math.floor(Math.random()*(max-min+1))+min;
+        }
+// Function to create new dot element
+        function createDot(){
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.style.left = `${getRandomInt(-1, window.innerWidth + 100)}px`;
+            dot.style.top = `${getRandomInt(-1, window.innerHeight + 100)}px`;
+            document.body.appendChild(dot);
+        }
+// Creawte initial sets of dots
+        for (let i = 0; i < 200; i++){
+            createDot();
+        }
+// Event listenor of mouse movement
+        document.addEventListener('mousemove', (event)=>{
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach (dot =>{
+                const distanceX = event.clientX - dot.offsetLeft;
+                const distanceY = event.clientY - dot.offsetTop;
+                const distance = Math.sqrt(distanceX * distanceX+ distanceY *distanceY);
+
+                // Check if dot close enough to the cursor
+
+                if(distance < 100){
+                    const forceX = distanceX/20;
+                    const forceY = distanceY/20;
+                    dot.style.left = `${dot.offsetLeft + (forceX * -0.5)}px`;
+                    dot.style.top = `${dot.offsetTop + (forceY * -0.5)}px`;
+                }
+            }
+
+            );
+        });
+    </script>
+</body>
+
+</html>
