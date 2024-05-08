@@ -1,0 +1,43 @@
+body {
+    background-color: #121212; /* Dark background color */
+    color: #fff; /* Light text color */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .play-button {
+    background-color: red; /* Red button color */
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 20px 40px;
+    border-radius: 15%;
+    outline: none;
+  }
+
+  .play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ff0000; /* Red glow */
+  }
+
+  .play-button:hover span {
+    font-size: 28px;
+    transition: all 0.3s ease;
+  }
+
+  .play-symbol {
+    font-size: 24px;
+    margin-right: 5px;
+  }
